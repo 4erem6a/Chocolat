@@ -28,6 +28,7 @@
     "@babel/plugin-proposal-decorators": "^7.3.0",
     "@babel/preset-env": "^7.3.4",
     "discord.js": "^11.4.2",
+    "i18next": "^15.0.7",
     "require-all": "^3.0.0",
     "sequelize": "^5.1.0"
   },
