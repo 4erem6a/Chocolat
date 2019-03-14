@@ -1,11 +1,12 @@
 import CommandParser from "./CommandParser";
+import Guild from "../../models/Guild";
 
-export default function handleCommand(message) {
+export default async function handleCommand(message) {
     if (message.author.bot || message.system) {
         return;
     }
 
-    const prefix = process.env.PREFIX;
+    const prefix = await getPrefix(message);
     
     const mentionPrefixPattern = new RegExp(`^\\s*<@!?${message.client.user.id}>\\s*`);
 
@@ -37,4 +38,17 @@ export default function handleCommand(message) {
     }
 
     command.invoke(message.client, message, parser.rest());
+}
+
+async function getPrefix(message) {
+    if (!message.guild) {
+        return process.env.PREFIX;
+    }
+
+    const [guild] = await Guild.findOrCreate({
+        where: { id: message.guild.id },
+        defaults: { id: message.guild.id }
+    });
+
+    return guild.prefix;
 }
