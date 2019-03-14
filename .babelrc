@@ -1,0 +1,27 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": true
+                }
+            }
+        ]
+    ],
+    "env": {
+        "development": {
+            "sourceMaps": "inline",
+            "retainLines": true
+        }
+    },
+    "plugins": [
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "decoratorsBeforeExport": true
+            }
+        ],
+        "@babel/plugin-proposal-class-properties"
+    ]
+}

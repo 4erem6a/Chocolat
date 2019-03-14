@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/4erem6a/Chocolat/issues"
   },
-  "homepage": "https://github.com/4erem6a/Chocolat#readme"
+  "homepage": "https://github.com/4erem6a/Chocolat#readme",
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/preset-env": "^7.3.4"
+  }
 }
