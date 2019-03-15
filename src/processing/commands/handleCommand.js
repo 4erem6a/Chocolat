@@ -1,12 +1,16 @@
 import CommandParser from "./CommandParser";
 import Guild from "../../models/Guild";
+import UserLocale from "../../models/UserLocale";
+
+import { defaults } from "../../../config";
+import i18next from "i18next";
 
 export default async function handleCommand(message) {
     if (message.author.bot || message.system) {
         return;
     }
 
-    const prefix = await getPrefix(message);
+    const [prefix, locale] = await loadData(message);
     
     const mentionPrefixPattern = new RegExp(`^\\s*<@!?${message.client.user.id}>\\s*`);
 
@@ -37,18 +41,29 @@ export default async function handleCommand(message) {
         return;
     }
 
+    await i18next.changeLanguage(locale).catch(console.error);
+
+    command.locale = locale;
+
     command.invoke(message.client, message, parser.rest());
 }
 
-async function getPrefix(message) {
+async function loadData(message) {
+    const userLocale = await UserLocale.findByPk(message.author.id);
+
     if (!message.guild) {
-        return process.env.PREFIX;
+        return [
+            defaults.prefix,
+            userLocale && userLocale.locale || defaults.locale
+        ];
     }
 
-    const [guild] = await Guild.findOrCreate({
-        where: { id: message.guild.id },
-        defaults: { id: message.guild.id }
-    });
+    const guild = await Guild.findByPk(message.guild.id);
 
-    return guild.prefix;
+    const prefix = guild && guild.prefix || defaults.prefix;
+    const locale = userLocale && userLocale.overrideGuildLocale
+        ? userLocale.locale || defaults.locale
+        : guild && guild.locale || userLocale.locale || defaults.locale;
+
+    return [prefix, locale];
 }
