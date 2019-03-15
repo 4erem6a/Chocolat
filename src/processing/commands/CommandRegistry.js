@@ -46,7 +46,8 @@ export default class CommandRegistry {
     get commands() {
         return new Collection(
             this.groups.array()
-                .flatMap(g => g.commands.array())
+                .map(g => g.commands.array())
+                .reduce((a, b) => a.concat(b))
                 .map(c => [c.name, c])
         );
     }
