@@ -1,0 +1,5 @@
+ping:
+  description: Pong!
+  messages:
+    pinging: Pinging . . .
+    result: Pong! Latency is *{{latency}}ms* and API latency is *{{apiLatency}}ms*.
