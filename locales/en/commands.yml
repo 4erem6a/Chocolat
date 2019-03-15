@@ -1,5 +1,12 @@
 ping:
-  description: Pong!
+  description: Checks bot's latency
   messages:
     pinging: Pinging . . .
     result: Pong! Latency is *{{latency}}ms* and API latency is *{{apiLatency}}ms*.
+userLocale:
+  description: Displays/Changes your locale
+  messages:
+    get: Your current locale is **{{locale}}**
+    sameLocale: You can't switch to the same locale you're using
+    set: Your locale has been switched from **{{from}}** to **{{to}}**
+    invalidLocale: Locale **{{locale}}** does not exists or is not supported
