@@ -57,4 +57,8 @@ export default class Command {
     hasPermissions() { return true; }
 
     validate() { return true; }
+
+    get fullName() {
+        return `${this.group}::${this.name}`;
+    }
 }
