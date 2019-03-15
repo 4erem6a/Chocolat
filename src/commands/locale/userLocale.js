@@ -1,6 +1,6 @@
 import Command from "../../processing/commands/Command";
-import { name, description, group } from "../../processing/commands/decorators";
-import { ls } from "../../utils/LocalizedString";
+import { name, description, group, format } from "../../processing/commands/decorators";
+import { ls, ll } from "../../utils/LocalizedString";
 import i18next from "i18next";
 import UserLocale from "../../models/UserLocale";
 
@@ -9,6 +9,7 @@ import { defaults } from "../../../config";
 @name("locale:user")
 @group("locale")
 @description(ls`commands:userLocale.description`)
+@format(ls`commands:userLocale.format`)
 export default class PingCommand extends Command {
     async run(message, [value]) {
         const [userLocale] = await UserLocale.findOrBuild({
@@ -17,15 +18,15 @@ export default class PingCommand extends Command {
         });
 
         if (!value) {
-            return i18next.t("commands:userLocale.messages.get", { locale: userLocale.locale });
+            return ll`commands:userLocale.messages.get`({ locale: userLocale.locale });
         }
 
         if (value == userLocale.locale) {
-            return i18next.t("commands:userLocale.messages.sameLocale");
+            return ll`commands:userLocale.messages.sameLocale`();
         }
 
         if (!i18next.languages.includes(value)) {
-            return i18next.t("commands:userLocale.messages.invalidLocale", { locale: value });
+            return ll`commands:userLocale.messages.invalidLocale`({ locale: value });
         }
 
         const oldLocale = userLocale.locale;
@@ -34,6 +35,6 @@ export default class PingCommand extends Command {
 
         await userLocale.save();
 
-        return i18next.t("commands:userLocale.messages.set", { from: oldLocale, to: value });
+        return ll`commands:userLocale.messages.set`({ from: oldLocale, to: value });
     }
 }
