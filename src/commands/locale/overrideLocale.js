@@ -9,7 +9,7 @@ import { defaults } from "../../../config";
 @group("locale")
 @description(ls`commands:overrideLocale.description`)
 @format(ls`commands:overrideLocale.format`)
-export default class PingCommand extends Command {
+export default class OverrideLocaleCommand extends Command {
     async run(message, [value]) {
         const rawValue = value;
         value = value == "true" || (value == "false"

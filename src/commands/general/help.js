@@ -10,7 +10,7 @@ import Guild from "../../models/Guild";
 @name("help")
 @description(ls`commands:help.description`)
 @format(ls`commands:help.format`)
-export default class PingCommand extends Command {
+export default class HelpCommand extends Command {
     async run(message, [command]) {
         if (command) {
             return this.commandDetails(message, command);

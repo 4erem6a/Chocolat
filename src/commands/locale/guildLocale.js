@@ -11,7 +11,7 @@ import { defaults } from "../../../config";
 @description(ls`commands:guildLocale.description`)
 @format(ls`commands:overrideLocale.format`)
 @guildOnly
-export default class PingCommand extends Command {
+export default class GuildLocaleCommand extends Command {
     hasPermissions(member) {
         return member.hasPermission("MANAGE_GUILD")
             || ll`messages:errors.missingPermissions`();

@@ -10,7 +10,7 @@ import { defaults } from "../../../config";
 @group("locale")
 @description(ls`commands:userLocale.description`)
 @format(ls`commands:userLocale.format`)
-export default class PingCommand extends Command {
+export default class UserLocaleCommand extends Command {
     async run(message, [value]) {
         const [userLocale] = await UserLocale.findOrBuild({
             where: { id: message.author.id },

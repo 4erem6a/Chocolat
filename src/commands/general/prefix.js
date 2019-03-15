@@ -8,7 +8,7 @@ import { defaults } from "../../../config";
 @name("prefix")
 @description(ls`commands:prefix.description`)
 @format(ls`commands:prefix.format`)
-export default class PingCommand extends Command {
+export default class PrefixCommand extends Command {
     hasPermissions(userOrMember) {
         return userOrMember.user
             ? userOrMember.hasPermission("MANAGE_GUILD")
