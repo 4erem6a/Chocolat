@@ -58,3 +58,8 @@ help:
           name: Description
         canUse:
           name: Can I use
+
+localeList:
+  description: Get a list of available locales
+  messages:
+    get: "Here is a list of currently available locales: {{locales}}"
