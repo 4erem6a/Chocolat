@@ -2,7 +2,9 @@ import { Sequelize } from "sequelize";
 import requireAll from "require-all";
 
 export default async function dbinit() {
-    const sequelize = new Sequelize({ dialect: "sqlite" });
+    const sequelize = process.env.NODE_ENV == "development"
+        ? new Sequelize({ dialect: "sqlite" })
+        : new Sequelize(process.env.DATABASE_URL, { dialect: "postgres" });
 
     loadModels(sequelize, `${__dirname}/models`);
     
