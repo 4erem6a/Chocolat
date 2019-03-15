@@ -48,7 +48,7 @@ export default class HelpCommand extends Command {
 
         const embed = new RichEmbed()
             .setTitle(ll`commands:help.embed.details.title`({ command: command.fullName }))
-            .addField(ll`commands:help.embed.details.fields.format.name`(), format)
+            .addField(ll`commands:help.embed.details.fields.format.name`(), `\`${format}\``)
             .addField(ll`commands:help.embed.details.fields.description.name`(), description)
             .addField(ll`commands:help.embed.details.fields.canUse.name`(), canUse)
             .setColor(embedColor);
