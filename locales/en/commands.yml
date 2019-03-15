@@ -6,6 +6,7 @@ ping:
 
 userLocale:
   description: Displays/Sets your locale
+  format: "[locale]"
   messages:
     get: Your current locale is **{{locale}}**
     sameLocale: You can't switch to the same locale you're using
@@ -14,6 +15,7 @@ userLocale:
 
 guildLocale:
   description: Displays/Sets guild locale
+  format: "[locale]"
   messages:
     get: Current guild locale is **{{locale}}**
     sameLocale: You can't switch to the same locale you're using
@@ -22,6 +24,7 @@ guildLocale:
 
 overrideLocale:
   description: Displays/Sets whether your user locale overrides guild locales
+  format: "[true/false]"
   messages:
     get: Guild locale override is set to **{{value}}**
     sameValue: You can't switch to the same value you're using
@@ -33,4 +36,25 @@ prefix:
   messages:
     dmPrefix: My default prefix is `{{prefix}}`
     get: The current command prefix for this guild is `{{prefix}}`
+    maxLength: Looks like your prefix exceeds maximum prefix length of **{{maxLength}}** characters
     set: Guild command prefix has been switched from `{{from}}` to `{{to}}`
+
+help:
+  description: Displays a list of available commands or help for a specific command
+  format: "[command]"
+  messages:
+    commandNotFound: Looks like command `{{command}}` doest not exists
+    guildOnly: This command is guild-only
+  embed:
+    main:
+      title: Available commands
+      footer: Use {{prefix}}help <command> to get help for a specific command
+    details:
+      title: Detailed help for `{{command}}` command
+      fields:
+        format:
+          name: Format
+        description:
+          name: Description
+        canUse:
+          name: Can I use
