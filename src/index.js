@@ -17,9 +17,10 @@ if (process.env.NODE_ENV == "development") {
 i18next
     .use(Backend)
     .init({
-        fallbackLng: "en",
+        fallbackLng: require("../locales/locales"),
         ns: ["system", "commands", "messages"],
         initImmediate: false,
+        debug: true,
         backend: {
             loadPath: `${__dirname}/../locales/{{lng}}/{{ns}}.yml`
         }
