@@ -27,3 +27,10 @@ overrideLocale:
     sameValue: You can't switch to the same value you're using
     invalidValue: "**{{value}}** is not a valid value"
     set: Guild locale override was set to **{{value}}**
+
+prefix:
+  description: Displays/Sets guild command prefix
+  messages:
+    dmPrefix: My default prefix is `{{prefix}}`
+    get: The current command prefix for this guild is `{{prefix}}`
+    set: Guild command prefix has been switched from `{{from}}` to `{{to}}`
