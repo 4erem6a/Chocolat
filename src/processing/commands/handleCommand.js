@@ -63,7 +63,7 @@ async function loadData(message) {
     const prefix = guild && guild.prefix || defaults.prefix;
     const locale = userLocale && userLocale.overrideGuildLocale
         ? userLocale.locale || defaults.locale
-        : guild && guild.locale || userLocale.locale || defaults.locale;
+        : guild && guild.locale || userLocale && userLocale.locale || defaults.locale;
 
     return [prefix, locale];
 }
