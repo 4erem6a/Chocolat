@@ -8,10 +8,13 @@ export default class LocalizedString {
     localize(options) {
         return i18next.t(this.key, options);
     }
-
-    l = this.localize;
 }
 
-export function ls([key]) {
-    return new LocalizedString(key);
+export function ls(...args) {
+    return new LocalizedString(String.raw(...args));
+}
+
+export function ll(...args) {
+    const ls = new LocalizedString(String.raw(...args));
+    return ls.localize.bind(ls);
 }
