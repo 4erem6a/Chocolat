@@ -1,7 +1,7 @@
 import CommandParser from "./CommandParser";
 
 export default class Command {
-    group = "General";
+    group = "general";
     guildOnly = false;
 
     constructor(options) {
