@@ -1,0 +1,7 @@
+{
+    "defaults": {
+        "prefix": "-c",
+        "locale": "en"
+    },
+    "embedColor": "#dd00bb"
+}
