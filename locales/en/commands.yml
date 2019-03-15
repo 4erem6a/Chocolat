@@ -5,7 +5,7 @@ ping:
     result: Pong! Latency is *{{latency}}ms* and API latency is *{{apiLatency}}ms*.
 
 userLocale:
-  description: Displays/Changes your locale
+  description: Displays/Sets your locale
   messages:
     get: Your current locale is **{{locale}}**
     sameLocale: You can't switch to the same locale you're using
@@ -13,9 +13,17 @@ userLocale:
     invalidLocale: Locale **{{locale}}** does not exists or is not supported
 
 guildLocale:
-  description: Displays/Changes guild locale
+  description: Displays/Sets guild locale
   messages:
     get: Current guild locale is **{{locale}}**
     sameLocale: You can't switch to the same locale you're using
     set: Guild locale has been switched from **{{from}}** to **{{to}}**
     invalidLocale: Locale **{{locale}}** does not exists or is not supported
+
+overrideLocale:
+  description: Displays/Sets whether your user locale overrides guild locales
+  messages:
+    get: Guild locale override is set to **{{value}}**
+    sameValue: You can't switch to the same value you're using
+    invalidValue: "**{{value}}** is not a valid value"
+    set: Guild locale override was set to **{{value}}**
