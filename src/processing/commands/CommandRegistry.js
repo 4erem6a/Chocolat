@@ -30,9 +30,7 @@ export default class CommandRegistry {
         const group = maybeName ? groupOrName : undefined;
         const name = maybeName ? maybeName : groupOrName;
         if (!group) {
-            return this.groups.array()
-                .flatMap(g => g.commands.array())
-                .find(c => c.name == name);
+            return this.commands.find(c => c.name == name);
         } else {
             const _group = this.groups.find(g => g.name == group);
             return _group && _group.commands.find(c => c.name == name);
