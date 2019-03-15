@@ -1,5 +1,5 @@
 import Command from "../../processing/commands/Command";
-import { name, description } from "../../processing/commands/decorators";
+import { name, description, group } from "../../processing/commands/decorators";
 import { ls } from "../../utils/LocalizedString";
 import i18next from "i18next";
 import UserLocale from "../../models/UserLocale";
@@ -7,6 +7,7 @@ import UserLocale from "../../models/UserLocale";
 import { defaults } from "../../../config";
 
 @name("locale:user")
+@group("locale")
 @description(ls`commands:userLocale.description`)
 export default class PingCommand extends Command {
     async run(message, [value]) {
