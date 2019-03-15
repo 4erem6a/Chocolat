@@ -22,6 +22,9 @@ i18next
         initImmediate: false,
         backend: {
             loadPath: `${__dirname}/../locales/{{lng}}/{{ns}}.yml`
+        },
+        interpolation: {
+            escapeValue: false
         }
     }).then(() => console.log("Translations loaded"));
 
