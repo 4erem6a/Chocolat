@@ -1,5 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 
+import { defaults } from "../../config";
+
 export default class Guild extends Model {
     static init(sequelize) {
         return super.init({
@@ -12,8 +14,9 @@ export default class Guild extends Model {
             prefix: {
                 type: DataTypes.STRING,
                 allowNull: false,
-                defaultValue: process.env.PREFIX
-            }
+                defaultValue: defaults.prefix
+            },
+            locale: DataTypes.STRING
         }, {
             timestamps: false,
             sequelize
