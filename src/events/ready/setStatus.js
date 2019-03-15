@@ -1,0 +1,1 @@
+export default (client) => client.user.setActivity(`@${client.user.username} help`);
