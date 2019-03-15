@@ -30,6 +30,12 @@ export default class PingCommand extends Command {
             return ll`commands:prefix.messages.get`({ prefix: guild.prefix });
         }
 
+        const maxLength = 255;
+
+        if (prefix.length >= maxLength) {
+            return ll`commands:prefix.messages.tooLong`({ maxLength: maxLength });
+        }
+
         const oldPrefix = guild.prefix;
 
         guild.prefix = prefix;
