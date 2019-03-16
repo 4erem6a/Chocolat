@@ -1,3 +1,8 @@
 import stopVoiceXpTimer from "../../utils/stopVoiceXpTimer";
 
-export default async (client, oldMember, newMember) => stopVoiceXpTimer(newMember);
+export default (client, oldMember, newMember) => {
+    if (newMember.user.bot) {
+        return;
+    }
+    stopVoiceXpTimer(newMember);
+};

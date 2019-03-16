@@ -1,3 +1,8 @@
 import startVoiceXpTimer from "../../utils/startVoiceXpTimer";
 
-export default async (client, oldMember, newMember) => startVoiceXpTimer(newMember);
+export default (client, oldMember, newMember) => {
+    if (newMember.user.bot) {
+        return;
+    }
+    startVoiceXpTimer(newMember);
+};

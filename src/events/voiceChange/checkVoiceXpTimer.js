@@ -3,6 +3,10 @@ import stopVoiceXpTimer from "../../utils/stopVoiceXpTimer";
 import startVoiceXpTimer from "../../utils/startVoiceXpTimer";
 
 export default async (client, oldMember, newMember) => {
+    if (newMember.user.bot) {
+        return;
+    }
+
     const [guild] = await Guild.findOrBuild({
         where: { id: newMember.guild.id },
         defaults: { id: newMember.guild.id }
