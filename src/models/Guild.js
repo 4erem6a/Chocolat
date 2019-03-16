@@ -16,7 +16,8 @@ export default class Guild extends Model {
                 allowNull: false,
                 defaultValue: defaults.prefix
             },
-            locale: DataTypes.STRING
+            locale: DataTypes.STRING,
+            voiceIgnoreRole: DataTypes.STRING
         }, {
             timestamps: false,
             sequelize
