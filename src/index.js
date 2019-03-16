@@ -34,10 +34,8 @@ client.commands = loadCommands(`${__dirname}/commands`);
 
 loadEvents(client, `${__dirname}/events`);
 
-client.once("ready", async () => {
-    client.sequelize = await dbinit();
-    client.synced = true;
+dbinit().then(sequelize => {
+    client.sequelize = sequelize;
     client.emit("sync");
+    client.login(process.env.TOKEN).catch(console.error);
 });
-
-client.login(process.env.TOKEN).catch(console.error);
