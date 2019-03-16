@@ -1,88 +1,89 @@
-ping:
-  description: Checks bot's latency
-  messages:
-    pinging: Pinging . . .
-    result: Pong! Latency is *{{latency}}ms* and API latency is *{{apiLatency}}ms*.
-
-prefix:
-  description: Displays/Sets guild command prefix
-  format: "[prefix]"
-  messages:
-    dmPrefix: My default prefix is `{{prefix}}`
-    get: The current command prefix for this guild is `{{prefix}}`
-    maxLength: Looks like your prefix exceeds maximum prefix length of **{{maxLength}}** characters
-    set: Guild command prefix has been switched from `{{from}}` to `{{to}}`
-
-help:
-  description: Displays a list of available commands or help for a specific command
-  format: "[command]"
-  messages:
-    commandNotFound: Looks like command `{{command}}` does not exists
-    guildOnly: This command is guild-only
-  embed:
-    main:
-      title: Available commands
-      footer: Use {{prefix}}help <command> to get help for a specific command
-    details:
-      title: Detailed help for `{{command}}` command
-      fields:
-        format:
-          name: Format
-        description:
-          name: Description
-        canUse:
-          name: Can I use
-
-info:
-  description: General bot information
-  messages:
-    info: |-
-      **Chocolat**
-      __General Information__
-      Chocolat is a general purpose open source Discord bot made out of pure curiosity.
-
-      __Command Prefix__
-      The default command prefix for Chocolat is `-c`, but it can be changed on other guilds through the `prefix` command.
-      Despite this, you can always use mention prefix if you don't know the exact one.
-
-      __Commands__
-      Use `help` command to get a list of all available commands or `help <command>` to get help for a specific one.
-
-      __Command Syntax__
-      The following notation will be used in this section:
-      `<...>` - required parameter
-      `[...]` - optional parameter
-      `{...}` - optional repeating parameter (e.g. zero or more)
-      The same notation is used in command's __format__ property in detailed help.
-
-      Chocolat uses the following command syntax:
-      `<prefix>[spaces]<command><spaces>{argument}`
-      Where:
-      `prefix`    - command prefix or mention
-      `spaces`    - one or more whitespace characters (e.g. space, line break)
-      `command`   - command name
-      `argument`  - command argument
-
-      The command name can be either a simple name (e.g. `ping`) or a full one (`general::ping`).
-      Command arguments are separated both from the command and from each other by one or more whitespace characters.
-      This means that every command argument containing whitespace characters will be splitted into multiple ones.
-      To prevent this you can use argument grouping:
-
-      `arg1 arg2` = `arg1`, `arg2`
-      `"arg1 arg2"` = `arg1 arg2`
-      `(arg1 arg2)` = `arg1 arg2`
-
-      If you want to include grouping characters into you argument you can escape them with `\` (backslash) like this:
-
-      `(arg1 (arg2))` = `arg1 (arg2`, `)`
-      `(arg1 (arg2\))` = `arg1 (arg2)`
-
-      Same works with double quote grouping:
-
-      `"arg1 \" arg2"` = `arg1 " arg2`
-
-      Note: Grouping works for command names as well:
-      `(general::help) "general::help"`
+general:
+  ping:
+    description: Checks bot's latency
+    messages:
+      pinging: Pinging . . .
+      result: Pong! Latency is *{{latency}}ms* and API latency is *{{apiLatency}}ms*.
+    
+  prefix:
+    description: Displays/Sets guild command prefix
+    format: "[prefix]"
+    messages:
+      dmPrefix: My default prefix is `{{prefix}}`
+      get: The current command prefix for this guild is `{{prefix}}`
+      maxLength: Looks like your prefix exceeds maximum prefix length of **{{maxLength}}** characters
+      set: Guild command prefix has been switched from `{{from}}` to `{{to}}`
+    
+  help:
+    description: Displays a list of available commands or help for a specific command
+    format: "[command]"
+    messages:
+      commandNotFound: Looks like command `{{command}}` does not exists
+      guildOnly: This command is guild-only
+    embed:
+      main:
+        title: Available commands
+        footer: Use {{prefix}}help <command> to get help for a specific command
+      details:
+        title: Detailed help for `{{command}}` command
+        fields:
+          format:
+            name: Format
+          description:
+            name: Description
+          canUse:
+            name: Can I use
+          
+  info:
+    description: General bot information
+    messages:
+      info: |-
+        **Chocolat**
+        __General Information__
+        Chocolat is a general purpose open source Discord bot made out of pure curiosity.
+      
+        __Command Prefix__
+        The default command prefix for Chocolat is `-c`, but it can be changed on other guilds through the `prefix` command.
+        Despite this, you can always use mention prefix if you don't know the exact one.
+      
+        __Commands__
+        Use `help` command to get a list of all available commands or `help <command>` to get help for a specific one.
+      
+        __Command Syntax__
+        The following notation will be used in this section:
+        `<...>` - required parameter
+        `[...]` - optional parameter
+        `{...}` - optional repeating parameter (e.g. zero or more)
+        The same notation is used in command's __format__ property in detailed help.
+        
+        Chocolat uses the following command syntax:
+        `<prefix>[spaces]<command><spaces>{argument}`
+        Where:
+        `prefix`    - command prefix or mention
+        `spaces`    - one or more whitespace characters (e.g. space, line break)
+        `command`   - command name
+        `argument`  - command argument
+        
+        The command name can be either a simple name (e.g. `ping`) or a full one (`general::ping`).
+        Command arguments are separated both from the command and from each other by one or more whitespace characters.
+        This means that every command argument containing whitespace characters will be splitted into multiple ones.
+        To prevent this you can use argument grouping:
+        
+        `arg1 arg2` = `arg1`, `arg2`
+        `"arg1 arg2"` = `arg1 arg2`
+        `(arg1 arg2)` = `arg1 arg2`
+        
+        If you want to include grouping characters into you argument you can escape them with `\` (backslash) like this:
+        
+        `(arg1 (arg2))` = `arg1 (arg2`, `)`
+        `(arg1 (arg2\))` = `arg1 (arg2)`
+        
+        Same works with double quote grouping:
+        
+        `"arg1 \" arg2"` = `arg1 " arg2`
+        
+        Note: Grouping works for command names as well:
+        `(general::help) "general::help"`
 
 locale:
   user:
@@ -116,3 +117,6 @@ locale:
     description: Get a list of available locales
     messages:
       get: "Here is a list of currently available locales: {{locales}}"
+
+voicexp:
+  ignore:

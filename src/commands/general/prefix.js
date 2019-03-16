@@ -6,8 +6,8 @@ import Guild from "../../models/Guild";
 import { defaults } from "../../../config";
 
 @name("prefix")
-@description(ls`commands:prefix.description`)
-@format(ls`commands:prefix.format`)
+@description(ls`commands:general.prefix.description`)
+@format(ls`commands:general.prefix.format`)
 export default class PrefixCommand extends Command {
     hasPermissions(userOrMember) {
         return userOrMember.user
@@ -18,7 +18,7 @@ export default class PrefixCommand extends Command {
 
     async run(message, [prefix]) {
         if (!message.guild) {
-            return ll`commands:prefix.messages.dmPrefix`({ prefix: defaults.prefix });
+            return ll`commands:general.prefix.messages.dmPrefix`({ prefix: defaults.prefix });
         }
 
         const [guild] = await Guild.findOrBuild({
@@ -27,13 +27,13 @@ export default class PrefixCommand extends Command {
         });
 
         if (!prefix) {
-            return ll`commands:prefix.messages.get`({ prefix: guild.prefix });
+            return ll`commands:general.prefix.messages.get`({ prefix: guild.prefix });
         }
 
         const maxLength = 255;
 
         if (prefix.length >= maxLength) {
-            return ll`commands:prefix.messages.tooLong`({ maxLength: maxLength });
+            return ll`commands:general.prefix.messages.tooLong`({ maxLength: maxLength });
         }
 
         const oldPrefix = guild.prefix;
@@ -42,6 +42,6 @@ export default class PrefixCommand extends Command {
 
         await guild.save();
 
-        return ll`commands:prefix.messages.set`({ from: oldPrefix, to: prefix });
+        return ll`commands:general.prefix.messages.set`({ from: oldPrefix, to: prefix });
     }
 }

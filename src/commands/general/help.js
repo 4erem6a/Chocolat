@@ -8,8 +8,8 @@ import CommandRegistry from "../../processing/commands/CommandRegistry";
 import Guild from "../../models/Guild";
 
 @name("help")
-@description(ls`commands:help.description`)
-@format(ls`commands:help.format`)
+@description(ls`commands:general.help.description`)
+@format(ls`commands:general.help.format`)
 export default class HelpCommand extends Command {
     async run(message, [command]) {
         if (command) {
@@ -20,8 +20,8 @@ export default class HelpCommand extends Command {
         const caller = isGuild ? message.member : message.author;
 
         const embed = new RichEmbed()
-            .setTitle(ll`commands:help.embed.main.title`())
-            .setFooter(ll`commands:help.embed.main.footer`({ prefix: await this.getPrefix() }))
+            .setTitle(ll`commands:general.help.embed.main.title`())
+            .setFooter(ll`commands:general.help.embed.main.footer`({ prefix: await this.getPrefix() }))
             .setColor(embedColor);
 
         this.getAvailableCommands(isGuild, caller).groups.forEach(group =>
@@ -37,21 +37,21 @@ export default class HelpCommand extends Command {
         command = this.client.commands.get(commandOrGroup, maybeCommand);
 
         if (!command) {
-            return ll`commands:help.messages.commandNotFound`({ command: rawCommand });
+            return ll`commands:general.help.messages.commandNotFound`({ command: rawCommand });
         }
 
         const description = localize(command.description);
         const format = `${await this.getPrefix()}${command.name}${command.format ? ` ${localize(command.format)}` : ""}`;
         const canUse = message.channel.type != "text" && command.guildOnly
-            ? ll`commands:help.messages.guildOnly`()
+            ? ll`commands:general.help.messages.guildOnly`()
             : command.hasPermissions(command.guildOnly ? message.member : message.author)
                 ? ll`system:yes`() : ll`system:no`();
 
         const embed = new RichEmbed()
-            .setTitle(ll`commands:help.embed.details.title`({ command: command.fullName }))
-            .addField(ll`commands:help.embed.details.fields.format.name`(), `\`${format}\``)
-            .addField(ll`commands:help.embed.details.fields.description.name`(), description)
-            .addField(ll`commands:help.embed.details.fields.canUse.name`(), canUse)
+            .setTitle(ll`commands:general.help.embed.details.title`({ command: command.fullName }))
+            .addField(ll`commands:general.help.embed.details.fields.format.name`(), `\`${format}\``)
+            .addField(ll`commands:general.help.embed.details.fields.description.name`(), description)
+            .addField(ll`commands:general.help.embed.details.fields.canUse.name`(), canUse)
             .setColor(embedColor);
 
         message.channel.send(embed).catch(console.error);
