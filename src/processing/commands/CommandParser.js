@@ -92,7 +92,7 @@ export default class CommandParser {
     }
 
     closingQuote(quote) {
-        const flatQuotes = this.options.quotes.flat();
+        const flatQuotes = this.options.quotes.reduce((a, b) => a.concat(b));
         return flatQuotes[flatQuotes.indexOf(quote) + 1] || quote;
     }
 }
