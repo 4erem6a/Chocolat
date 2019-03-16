@@ -36,7 +36,7 @@ export default class PingCommand extends Command {
 
         return ll`commands:voicexp.time.messages.member`({
             member,
-            time: ms(guildMember.voiceTime, { long: true })
+            time: ms(Number(guildMember.voiceTime), { long: true })
         });
     }
 }
