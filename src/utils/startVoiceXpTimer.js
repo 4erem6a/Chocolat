@@ -20,5 +20,4 @@ export default async function startVoiceXpTimer(member) {
     guildMember.voiceTimerStart = new Date();
 
     await guildMember.save();
-    console.log(`Started: ${member.user.tag} -> ${member.guild.name}`);
 }

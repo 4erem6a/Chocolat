@@ -22,5 +22,4 @@ export default async function stopVoiceXpTimer(member) {
     guildMember.voiceTimerStart = null;
 
     await guildMember.save();
-    console.log(`Stopped: ${member.user.tag} -> ${member.guild.name}`);
 }
