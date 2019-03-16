@@ -1,6 +1,8 @@
 yes: Yes
 no: No
 
+empty: "<empty>"
+
 time:
   second: "{{count}} second"
   second_plural: "{{count}} seconds"
