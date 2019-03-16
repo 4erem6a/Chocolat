@@ -12,7 +12,7 @@ export default class GuildMember extends Model {
                 allowNull: false
             },
             voiceTime: {
-                type: DataTypes.BIGINT({ unsigned: true }),
+                type: DataTypes.BIGINT,
                 allowNull: false,
                 defaultValue: 0
             },
