@@ -18,7 +18,7 @@ export default async function stopVoiceXpTimer(member) {
 
     const time = new Date().getTime() - guildMember.voiceTimerStart;
 
-    guildMember.voiceTime += time;
+    guildMember.voiceTime = Number(guildMember.voiceTime) + time;
     guildMember.voiceTimerStart = null;
 
     await guildMember.save();
