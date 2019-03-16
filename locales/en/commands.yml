@@ -73,7 +73,7 @@ info:
       Chocolat is a general purpose open source Discord bot made out of pure curiosity.
 
       __Command Prefix__
-      The default command prefix for Chocolat is `-c`, but is can be changed on other guilds through `prefix` command.
+      The default command prefix for Chocolat is `-c`, but it can be changed on other guilds through the `prefix` command.
       Despite this, you can always use mention prefix if you don't know the exact one.
 
       __Commands__
@@ -90,7 +90,7 @@ info:
       `<prefix>[spaces]<command><spaces>{argument}`
       Where:
       `prefix`    - command prefix or mention
-      `spaces`    - one or more whitespace characters (e.g space, line break)
+      `spaces`    - one or more whitespace characters (e.g. space, line break)
       `command`   - command name
       `argument`  - command argument
 
