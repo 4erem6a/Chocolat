@@ -11,7 +11,7 @@ export function parseMember(guild, raw) {
     if (ID_PATTERN.test(raw))
         return guild.member(raw);
     return guild.members.find(member => member.displayName == raw || member.user.username == raw)
-        || findMatching(guild.members, raw, guild => guild.name);
+        || findMatching(guild.members, raw, member => member.displayName || member.user.username);
 }
 
 export function parseUser(client, raw) {
