@@ -26,7 +26,8 @@ export default class OverrideLocaleCommand extends Command {
 
         if (value === undefined) {
             return ll`commands:locale.override.messages.get`({
-                value: ll`system:${user.overrideGuildLocale ? "yes" : "no"}`()
+                value: user.overrideGuildLocale
+                    ? ll`system:yes`() : ll`system:no`()
             });
         }
 
