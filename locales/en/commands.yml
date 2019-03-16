@@ -131,3 +131,10 @@ voicexp:
         Please respond to this message with "{{yes}}" or "{{no}}" within {{time}}.
       canceled: Command canceled
       set: Guild voice ignore role has been set to **{{role}}**
+  time:
+    description: Displays your/member's voice time on this guild
+    format: "[member]"
+    messages:
+      get: Your voice time on this guild is **{{time}}**
+      memberNotFound: Member not found
+      member: "**{{member.user.tag}}**'s voice time on this guild is **{{time}}**"
