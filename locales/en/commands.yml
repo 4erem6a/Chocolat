@@ -138,3 +138,7 @@ voicexp:
       get: Your voice time on this guild is **{{time}}**
       memberNotFound: Member not found
       member: "**{{member.user.tag}}**'s voice time on this guild is **{{time}}**"
+  topGuild:
+    description: Displays top 10 guild members by their voice time
+    messages:
+      top: "Top {{count}} members by voice time for {{guild}} guild: {{top}}"
