@@ -32,11 +32,12 @@ export default class HelpCommand extends Command {
     }
 
     async commandDetails(message, command) {
+        const rawCommand = command;
         const [commandOrGroup, maybeCommand] = command.split("::", 2);
         command = this.client.commands.get(commandOrGroup, maybeCommand);
 
         if (!command) {
-            return ll`commands:help.messages.commandNotFound`({ command });
+            return ll`commands:help.messages.commandNotFound`({ command: rawCommand });
         }
 
         const description = localize(command.description);
