@@ -120,3 +120,14 @@ locale:
 
 voicexp:
   ignore:
+    description: Displays/Sets guild voice ignore role
+    format: "[role]"
+    messages:
+      get: Voice ignore role for this guild is **{{role}}**
+      notSet: Voice ignore role for this guild is not set
+      notFound: Role not found
+      setConfirmation: |-
+        Are you sure you want to use **{{role}}** role as a voice ignore one?
+        Please respond to this message with "{{yes}}" or "{{no}}" within {{time}}.
+      canceled: Command canceled
+      set: Guild voice ignore role has been set to **{{role}}**
