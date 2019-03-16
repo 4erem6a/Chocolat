@@ -6,9 +6,9 @@ import Guild from "../../models/Guild";
 
 import { defaults } from "../../../config";
 
-@name("locale:guild")
+@name("guild")
 @group("locale")
-@description(ls`commands:guildLocale.description`)
+@description(ls`commands:locale.guild.description`)
 @format(ls`commands:overrideLocale.format`)
 @guildOnly
 export default class GuildLocaleCommand extends Command {
@@ -24,15 +24,15 @@ export default class GuildLocaleCommand extends Command {
         });
 
         if (!value) {
-            return ll`commands:guildLocale.messages.get`({ locale: guild.locale });
+            return ll`commands:locale.guild.messages.get`({ locale: guild.locale });
         }
 
         if (value == guild.locale) {
-            return ll`commands:guildLocale.messages.sameLocale`();
+            return ll`commands:locale.guild.messages.sameLocale`();
         }
 
         if (!i18next.languages.includes(value)) {
-            return ll`commands:guildLocale.messages.invalidLocale`({ locale: value });
+            return ll`commands:locale.guild.messages.invalidLocale`({ locale: value });
         }
 
         const oldLocale = guild.locale;
@@ -41,6 +41,6 @@ export default class GuildLocaleCommand extends Command {
 
         await guild.save();
 
-        return ll`commands:guildLocale.messages.set`({ from: oldLocale, to: value });
+        return ll`commands:locale.guild.messages.set`({ from: oldLocale, to: value });
     }
 }

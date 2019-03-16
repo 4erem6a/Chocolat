@@ -6,10 +6,10 @@ import User from "../../models/User";
 
 import { defaults } from "../../../config";
 
-@name("locale:user")
+@name("user")
 @group("locale")
-@description(ls`commands:userLocale.description`)
-@format(ls`commands:userLocale.format`)
+@description(ls`commands:locale.user.description`)
+@format(ls`commands:locale.user.format`)
 export default class UserLocaleCommand extends Command {
     async run(message, [value]) {
         const [user] = await User.findOrBuild({
@@ -18,15 +18,15 @@ export default class UserLocaleCommand extends Command {
         });
 
         if (!value) {
-            return ll`commands:userLocale.messages.get`({ locale: user.locale });
+            return ll`commands:locale.user.messages.get`({ locale: user.locale });
         }
 
         if (value == user.locale) {
-            return ll`commands:userLocale.messages.sameLocale`();
+            return ll`commands:locale.user.messages.sameLocale`();
         }
 
         if (!i18next.languages.includes(value)) {
-            return ll`commands:userLocale.messages.invalidLocale`({ locale: value });
+            return ll`commands:locale.user.messages.invalidLocale`({ locale: value });
         }
 
         const oldLocale = user.locale;
@@ -35,6 +35,6 @@ export default class UserLocaleCommand extends Command {
 
         await user.save();
 
-        return ll`commands:userLocale.messages.set`({ from: oldLocale, to: value });
+        return ll`commands:locale.user.messages.set`({ from: oldLocale, to: value });
     }
 }

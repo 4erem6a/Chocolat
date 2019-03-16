@@ -4,33 +4,6 @@ ping:
     pinging: Pinging . . .
     result: Pong! Latency is *{{latency}}ms* and API latency is *{{apiLatency}}ms*.
 
-userLocale:
-  description: Displays/Sets your locale
-  format: "[locale]"
-  messages:
-    get: Your current locale is **{{locale}}**
-    sameLocale: You can't switch to the same locale you're using
-    set: Your locale has been switched from **{{from}}** to **{{to}}**
-    invalidLocale: Locale **{{locale}}** does not exists or is not supported
-
-guildLocale:
-  description: Displays/Sets guild locale
-  format: "[locale]"
-  messages:
-    get: Current guild locale is **{{locale}}**
-    sameLocale: You can't switch to the same locale you're using
-    set: Guild locale has been switched from **{{from}}** to **{{to}}**
-    invalidLocale: Locale **{{locale}}** does not exists or is not supported
-
-overrideLocale:
-  description: Displays/Sets whether your user locale overrides guild locales
-  format: "[true/false]"
-  messages:
-    get: Guild locale override is set to **{{value}}**
-    sameValue: You can't switch to the same value you're using
-    invalidValue: "**{{value}}** is not a valid value"
-    set: Guild locale override was set to **{{value}}**
-
 prefix:
   description: Displays/Sets guild command prefix
   messages:
@@ -58,11 +31,6 @@ help:
           name: Description
         canUse:
           name: Can I use
-
-localeList:
-  description: Get a list of available locales
-  messages:
-    get: "Here is a list of currently available locales: {{locales}}"
 
 info:
   description: General bot information
@@ -115,3 +83,35 @@ info:
       Note: Grouping works for command names as well:
       `(general::help) "general::help"`
 
+locale:
+  user:
+    description: Displays/Sets your locale
+    format: "[locale]"
+    messages:
+      get: Your current locale is **{{locale}}**
+      sameLocale: You can't switch to the same locale you're using
+      set: Your locale has been switched from **{{from}}** to **{{to}}**
+      invalidLocale: Locale **{{locale}}** does not exists or is not supported
+
+  guild:
+    description: Displays/Sets guild locale
+    format: "[locale]"
+    messages:
+      get: Current guild locale is **{{locale}}**
+      sameLocale: You can't switch to the same locale you're using
+      set: Guild locale has been switched from **{{from}}** to **{{to}}**
+      invalidLocale: Locale **{{locale}}** does not exists or is not supported
+
+  override:
+    description: Displays/Sets whether your user locale overrides guild locales
+    format: "[true/false]"
+    messages:
+      get: Guild locale override is set to **{{value}}**
+      sameValue: You can't switch to the same value you're using
+      invalidValue: "**{{value}}** is not a valid value"
+      set: Guild locale override was set to **{{value}}**
+
+  list:
+    description: Get a list of available locales
+    messages:
+      get: "Here is a list of currently available locales: {{locales}}"

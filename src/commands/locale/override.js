@@ -5,10 +5,10 @@ import User from "../../models/User";
 
 import { defaults } from "../../../config";
 
-@name("locale:override")
+@name("override")
 @group("locale")
-@description(ls`commands:overrideLocale.description`)
-@format(ls`commands:overrideLocale.format`)
+@description(ls`commands:locale.override.description`)
+@format(ls`commands:locale.override.format`)
 export default class OverrideLocaleCommand extends Command {
     async run(message, [value]) {
         const rawValue = value;
@@ -25,24 +25,24 @@ export default class OverrideLocaleCommand extends Command {
         });
 
         if (value === undefined) {
-            return ll`commands:overrideLocale.messages.get`({
+            return ll`commands:locale.override.messages.get`({
                 value: ll`system:${user.overrideGuildLocale ? "yes" : "no"}`()
             });
         }
 
         if (value === null) {
-            return ll`commands:overrideLocale.messages.invalidValue`({ value: rawValue });
+            return ll`commands:locale.override.messages.invalidValue`({ value: rawValue });
         }
 
         if (value == user.overrideGuildLocale) {
-            return ll`commands:overrideLocale.messages.sameValue`();
+            return ll`commands:locale.override.messages.sameValue`();
         }
 
         user.overrideGuildLocale = value;
 
         await user.save();
 
-        return ll`commands:overrideLocale.messages.set`({
+        return ll`commands:locale.override.messages.set`({
             value: ll`system:${value ? "yes" : "no"}`()
         });
     }

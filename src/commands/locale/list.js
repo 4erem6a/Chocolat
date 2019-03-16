@@ -3,12 +3,12 @@ import { name, description, group } from "../../processing/commands/decorators";
 import { ls, ll } from "../../utils/LocalizedString";
 import i18next from "i18next";
 
-@name("locale:list")
+@name("list")
 @group("locale")
-@description(ls`commands:localeList.description`)
+@description(ls`commands:locale.list.description`)
 export default class LocaleListCommand extends Command {
     run() {
         const locales = i18next.languages.map(l => `\`${l}\``).reduce((a, b) => `${a}, ${b}`);
-        return ll`commands:localeList.messages.get`({ locales });
+        return ll`commands:locale.list.messages.get`({ locales });
     }
 }
