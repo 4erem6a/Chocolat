@@ -1,7 +1,5 @@
 yes: Yes
 no: No
-ok: Ok
-cancel: Cancel
 
 time:
   second: "{{count}} second"
