@@ -2,8 +2,8 @@ import Command from "../../processing/commands/Command";
 import { name, description, group, format, guildOnly } from "../../processing/commands/decorators";
 import { ls, ll } from "../../utils/LocalizedString";
 import GuildMember from "../../models/GuildMember";
-import ms from "ms";
 import { parseMember } from "./../../utils/parseMention";
+import localizeTime from "../../utils/localizeTime";
 
 @name("time")
 @group("voicexp")
@@ -19,7 +19,7 @@ export default class PingCommand extends Command {
             });
 
             return ll`commands:voicexp.time.messages.get`({
-                time: ms(guildMember.voiceTime, { long: true })
+                time: localizeTime(guildMember.voiceTime)
             });
         }
 
@@ -36,7 +36,7 @@ export default class PingCommand extends Command {
 
         return ll`commands:voicexp.time.messages.member`({
             member,
-            time: ms(Number(guildMember.voiceTime), { long: true })
+            time: localizeTime(guildMember.voiceTime)
         });
     }
 }

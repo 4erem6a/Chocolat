@@ -4,7 +4,7 @@ import { ls, ll } from "../../utils/LocalizedString";
 import Guild from "../../models/Guild";
 import { parseRole } from "../../utils/parseMention";
 import awaitConfirmation from "../../utils/awaitConfirmation";
-import ms from "ms";
+import localizeTime from "../../utils/localizeTime";
 
 @name("ignore")
 @group("voicexp")
@@ -43,7 +43,7 @@ export default class VoiceIgnoreCommand extends Command {
             message,
             ll`commands:voicexp.ignore.messages.setConfirmation`({
                 role: role.name,
-                time: ms(confirmationTime, { long: true }),
+                time: localizeTime(confirmationTime),
                 yes: ll`system:yes`(),
                 no: ll`system:no`()
             }),
