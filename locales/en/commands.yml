@@ -103,7 +103,7 @@ info:
       `"arg1 arg2"` = `arg1 arg2`
       `(arg1 arg2)` = `arg1 arg2`
 
-      If you want to include grouping characters into you argument you can escape them with `\\` (backslash) like this:
+      If you want to include grouping characters into you argument you can escape them with `\` (backslash) like this:
 
       `(arg1 (arg2))` = `arg1 (arg2`, `)`
       `(arg1 (arg2\))` = `arg1 (arg2)`
