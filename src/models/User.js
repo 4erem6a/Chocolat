@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 
-export default class UserLocale extends Model {
+export default class User extends Model {
     static init(sequelize) {
         return super.init({
             id: {

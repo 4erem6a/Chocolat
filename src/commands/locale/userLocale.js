@@ -2,7 +2,7 @@ import Command from "../../processing/commands/Command";
 import { name, description, group, format } from "../../processing/commands/decorators";
 import { ls, ll } from "../../utils/LocalizedString";
 import i18next from "i18next";
-import UserLocale from "../../models/UserLocale";
+import User from "../../models/User";
 
 import { defaults } from "../../../config";
 
@@ -12,16 +12,16 @@ import { defaults } from "../../../config";
 @format(ls`commands:userLocale.format`)
 export default class UserLocaleCommand extends Command {
     async run(message, [value]) {
-        const [userLocale] = await UserLocale.findOrBuild({
+        const [user] = await User.findOrBuild({
             where: { id: message.author.id },
             defaults: { id: message.author.id, locale: defaults.locale }
         });
 
         if (!value) {
-            return ll`commands:userLocale.messages.get`({ locale: userLocale.locale });
+            return ll`commands:userLocale.messages.get`({ locale: user.locale });
         }
 
-        if (value == userLocale.locale) {
+        if (value == user.locale) {
             return ll`commands:userLocale.messages.sameLocale`();
         }
 
@@ -29,11 +29,11 @@ export default class UserLocaleCommand extends Command {
             return ll`commands:userLocale.messages.invalidLocale`({ locale: value });
         }
 
-        const oldLocale = userLocale.locale;
+        const oldLocale = user.locale;
 
-        userLocale.locale = value;
+        user.locale = value;
 
-        await userLocale.save();
+        await user.save();
 
         return ll`commands:userLocale.messages.set`({ from: oldLocale, to: value });
     }

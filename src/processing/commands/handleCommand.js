@@ -1,6 +1,6 @@
 import CommandParser from "./CommandParser";
 import Guild from "../../models/Guild";
-import UserLocale from "../../models/UserLocale";
+import User from "../../models/User";
 
 import { defaults } from "../../../config";
 import i18next from "i18next";
@@ -49,21 +49,21 @@ export default async function handleCommand(message) {
 }
 
 async function loadData(message) {
-    const userLocale = await UserLocale.findByPk(message.author.id);
+    const user = await User.findByPk(message.author.id);
 
     if (!message.guild) {
         return [
             defaults.prefix,
-            userLocale && userLocale.locale || defaults.locale
+            user && user.locale || defaults.locale
         ];
     }
 
     const guild = await Guild.findByPk(message.guild.id);
 
     const prefix = guild && guild.prefix || defaults.prefix;
-    const locale = userLocale && userLocale.overrideGuildLocale
-        ? userLocale.locale || defaults.locale
-        : guild && guild.locale || userLocale && userLocale.locale || defaults.locale;
+    const locale = user && user.overrideGuildLocale
+        ? user.locale || defaults.locale
+        : guild && guild.locale || user && user.locale || defaults.locale;
 
     return [prefix, locale];
 }

@@ -1,7 +1,7 @@
 import Command from "../../processing/commands/Command";
 import { name, description, group, format } from "../../processing/commands/decorators";
 import { ls, ll } from "../../utils/LocalizedString";
-import UserLocale from "../../models/UserLocale";
+import User from "../../models/User";
 
 import { defaults } from "../../../config";
 
@@ -19,14 +19,14 @@ export default class OverrideLocaleCommand extends Command {
                 : null
         );
 
-        const [userLocale] = await UserLocale.findOrBuild({
+        const [user] = await User.findOrBuild({
             where: { id: message.author.id },
             defaults: { id: message.author.id, locale: defaults.locale }
         });
 
         if (value === undefined) {
             return ll`commands:overrideLocale.messages.get`({
-                value: ll`system:${userLocale.overrideGuildLocale ? "yes" : "no"}`()
+                value: ll`system:${user.overrideGuildLocale ? "yes" : "no"}`()
             });
         }
 
@@ -34,13 +34,13 @@ export default class OverrideLocaleCommand extends Command {
             return ll`commands:overrideLocale.messages.invalidValue`({ value: rawValue });
         }
 
-        if (value == userLocale.overrideGuildLocale) {
+        if (value == user.overrideGuildLocale) {
             return ll`commands:overrideLocale.messages.sameValue`();
         }
 
-        userLocale.overrideGuildLocale = value;
+        user.overrideGuildLocale = value;
 
-        await userLocale.save();
+        await user.save();
 
         return ll`commands:overrideLocale.messages.set`({
             value: ll`system:${value ? "yes" : "no"}`()
