@@ -18,5 +18,5 @@ function loadModels(sequelize, dirname) {
         .map(model => model.default || model)
         .map(model => model.init(sequelize))
         .filter(model => typeof model.associate === "function")
-        .forEach((model, i, models) => model.associate(models));
+        .forEach(model => model.associate());
 }
