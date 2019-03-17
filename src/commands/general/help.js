@@ -41,7 +41,7 @@ export default class HelpCommand extends Command {
         }
 
         const description = localize(command.description);
-        const format = `${await this.getPrefix()}${command.name}${command.format ? ` ${localize(command.format)}` : ""}`;
+        const format = `${await this.getPrefix()}${command.fullName}${command.format ? ` ${localize(command.format)}` : ""}`;
         const canUse = message.channel.type != "text" && command.guildOnly
             ? ll`commands:general.help.messages.guildOnly`()
             : command.hasPermissions(command.guildOnly ? message.member : message.author)
