@@ -9,7 +9,7 @@ import { defaults } from "../../../config";
 @name("guild")
 @group("locale")
 @description(ls`commands:locale.guild.description`)
-@format(ls`commands:overrideLocale.format`)
+@format(ls`commands:locale.guild.format`)
 @guildOnly
 export default class GuildLocaleCommand extends Command {
     hasPermissions(member) {
