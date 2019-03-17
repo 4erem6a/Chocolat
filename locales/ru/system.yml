@@ -1,0 +1,18 @@
+yes: Да
+no: Нет
+
+empty: "<пусто>"
+
+time:
+  second_0: "{{count}} секунда"
+  second_1: "{{count}} секунды"
+  second_2: "{{count}} секунд"
+  minute_0: "{{count}} минута"
+  minute_1: "{{count}} минуты"
+  minute_2: "{{count}} минуты"
+  hour_0: "{{count}} час"
+  hour_1: "{{count}} часа"
+  hour_2: "{{count}} часов"
+  day_0: "{{count}} день"
+  day_1: "{{count}} дня"
+  day_2: "{{count}} дней"
