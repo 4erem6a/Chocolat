@@ -14,7 +14,8 @@ const CODE_BLOCK_PATTERN = /```.*\n((?:.|\s)*)```/;
 @format(ls`commands:dev.eval.format`)
 export default class EvalCommand extends Command {
     hasPermissions(user) {
-        return config.owner == user.id;
+        return config.owner == user.id
+            || ll`messages:errors.missingPermissions`();
     }
 
     parseArgs(rest) {
