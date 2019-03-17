@@ -102,3 +102,11 @@ voicexp:
     description: Отображает топ 10 пользователей этого сервера по времени в голосовых каналах
     messages:
       top: "Топ {{count}} пользователей сервера {{guild}} по времени в голосовых каналах: {{top}}"
+
+dev:
+  eval:
+    description: Выполняет JavaScript
+    format: "<js или блок кода>"
+    messages:
+      result: "Выполнено за *{{time}}мс*: {{result}}"
+      error: "Произошла ошибка: {{stack}}"

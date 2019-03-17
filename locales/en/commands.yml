@@ -102,3 +102,11 @@ voicexp:
     description: Displays top 10 guild members by their voice time
     messages:
       top: "Top {{count}} members by voice time for {{guild}} guild: {{top}}"
+
+dev:
+  eval:
+    description: Evaluates JavaScript
+    format: "<js or code block>"
+    messages:
+      result: "Evaluation took *{{time}}ms*: {{result}}"
+      error: "An error has occurred: {{stack}}"
