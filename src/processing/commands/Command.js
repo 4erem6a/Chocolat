@@ -2,7 +2,6 @@ import CommandParser from "./CommandParser";
 
 export default class Command {
     group = "general";
-    guildOnly = false;
 
     constructor(options) {
         Object.assign(this, options);
