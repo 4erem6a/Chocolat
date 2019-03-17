@@ -9,7 +9,7 @@ time:
   second_2: "{{count}} секунд"
   minute_0: "{{count}} минута"
   minute_1: "{{count}} минуты"
-  minute_2: "{{count}} минуты"
+  minute_2: "{{count}} минут"
   hour_0: "{{count}} час"
   hour_1: "{{count}} часа"
   hour_2: "{{count}} часов"
