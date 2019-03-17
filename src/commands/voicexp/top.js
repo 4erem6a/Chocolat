@@ -2,7 +2,7 @@ import Command from "../../processing/commands/Command";
 import { name, description, guildOnly, group } from "../../processing/commands/decorators";
 import { ls, ll } from "../../utils/LocalizedString";
 import GuildMember from "../../models/GuildMember";
-import MessageFormatter from "./../../utils/MessageFormatter";
+import MessageFormatter from "../../utils/MessageFormatter";
 import localizeTime from "../../utils/localizeTime";
 
 @name("top")
