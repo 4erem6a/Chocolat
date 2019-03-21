@@ -24,8 +24,8 @@ export default class TopGuildCommand extends Command {
         ).filter(([, member]) => !!member);
         
         guildMembers.forEach(([guildMember, member], index) => formatter
-            .appendln(`[${index}]${" ".repeat(index == 10 ? 4 : 5)}#${member.user.tag}`)
-            .appendln(`${" ".repeat(8)}\t${localizeTime(guildMember.voiceTime)}`)
+            .appendln(`[${index}]${" ".repeat(index == 10 ? 3 : 4)}> #${member.user.tag}`)
+            .appendln(`\t\t\t${localizeTime(guildMember.voiceTime)}`)
         );
 
         if (guildMembers.length == 0) {
