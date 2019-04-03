@@ -10,7 +10,7 @@ const CODE_BLOCK_PATTERN = /```.*\n((?:.|\s)*)```/;
 @group("dev")
 @description(ls`commands:dev.query.description`)
 @format(ls`commands:dev.query.format`)
-export default class PingCommand extends Command {
+export default class QueryCommand extends Command {
     hasPermissions(user) {
         return config.owner == user.id
             || ll`messages:errors.missingPermissions`();
