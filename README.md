@@ -8,5 +8,4 @@ Chocolat is a general purpose Discord bot. ([Invite link](https://discordapp.com
 * Voice channels time counting
 
 ## Roadmap
-* dev::query
 * ???
