@@ -109,3 +109,20 @@ dev:
     messages:
       result: "Evaluation took *{{time}}ms*: {{result}}"
       error: "An error has occurred: {{stack}}"
+  query:
+    description: Executes SQL query
+    format: "<sql or code block>"
+    messages:
+      noQuery: No SQL query was provided
+      error: "An error has occurred: `{{error}}`"
+    embed:
+      result:
+        title: Database Query (`{{dialect}}`)
+        fields:
+          query:
+            name: Query
+          rowCount:
+            name: Row Count
+          time:
+            name: Execution took
+            value: "{{time}}ms"

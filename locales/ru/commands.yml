@@ -109,3 +109,20 @@ dev:
     messages:
       result: "Выполнено за *{{time}}мс*: {{result}}"
       error: "Произошла ошибка: {{stack}}"
+  query:
+    description: Выполняет SQL запрос
+    format: "<sql или блок кода>"
+    messages:
+      noQuery: Запрос не указан
+      error: "Произошла ошибка: `{{error}}`"
+    embed:
+      result:
+        title: Запрос к базе данных (`{{dialect}}`)
+        fields:
+          query:
+            name: Запрос
+          rowCount:
+            name: Кол-во рядов
+          time:
+            name: Время выполнения
+            value: "{{time}}мс"
