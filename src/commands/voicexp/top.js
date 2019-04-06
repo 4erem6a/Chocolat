@@ -7,9 +7,9 @@ import localizeTime from "../../utils/localizeTime";
 
 @name("top")
 @group("voicexp")
-@description(ls`commands:voicexp.topGuild.description`)
+@description(ls`commands:voicexp.top.description`)
 @guildOnly
-export default class TopGuildCommand extends Command {
+export default class TopCommand extends Command {
     async run() {
         let guildMembers = await GuildMember.findAll({
             where: { guildId: this.guild.id },
@@ -24,7 +24,7 @@ export default class TopGuildCommand extends Command {
         ).filter(([, member]) => !!member);
         
         guildMembers.forEach(([guildMember, member], index) => formatter
-            .appendln(`[${index}]${" ".repeat(index == 10 ? 3 : 4)}> #${member.user.tag}`)
+            .appendln(`[${index + 1}]${" ".repeat(index == 10 ? 3 : 4)}> #${member.user.tag}`)
             .appendln(`\t\t\t${localizeTime(guildMember.voiceTime)}`)
         );
 
@@ -32,7 +32,7 @@ export default class TopGuildCommand extends Command {
             formatter.appendln(ll`system:empty`());
         }
 
-        return ll`commands:voicexp.topGuild.messages.top`({
+        return ll`commands:voicexp.top.messages.top`({
             guild: this.guild.name,
             count: guildMembers.length,
             top: formatter.toCode("pl")
