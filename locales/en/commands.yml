@@ -87,7 +87,7 @@ voicexp:
       notFound: Role not found
       setConfirmation: |-
         Are you sure you want to use **{{role}}** role as a voice ignore one?
-        Please respond to this message with "{{yes}}" or "{{no}}" within {{time}}.
+        Please respond with `$t(system:yes)` or `$t(system:no)` within {{time}}.
       canceled: Command canceled
       set: Guild voice ignore role has been set to **{{role}}**
   time:

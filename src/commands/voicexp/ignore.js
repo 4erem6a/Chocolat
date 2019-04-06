@@ -43,9 +43,7 @@ export default class VoiceIgnoreCommand extends Command {
             message,
             ll`commands:voicexp.ignore.messages.setConfirmation`({
                 role: role.name,
-                time: localizeTime(confirmationTime),
-                yes: ll`system:yes`(),
-                no: ll`system:no`()
+                time: localizeTime(confirmationTime)
             }),
             { time: confirmationTime }
         );
